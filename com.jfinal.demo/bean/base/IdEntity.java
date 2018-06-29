@@ -27,9 +27,9 @@ public abstract class IdEntity<M extends IdEntity<M>> extends Model<M> implement
 		return getLong(Field.ID.key());
 	}
 
-	public IdEntity<M> setCreateDate(Date createDate) {
+	public IdEntity<M> setCreateDate() {
 
-		set(Field.CREATE_DATE.key(), createDate);
+		set(Field.CREATE_DATE.key(), new Date());
 		return this;
 	}
 
@@ -38,9 +38,9 @@ public abstract class IdEntity<M extends IdEntity<M>> extends Model<M> implement
 		return getDate(Field.CREATE_DATE.key());
 	}
 
-	public IdEntity<M> setUpdateDate(Date createDate) {
+	public IdEntity<M> setUpdateDate() {
 
-		set(Field.UPDATE_DATE.key(), createDate);
+		set(Field.UPDATE_DATE.key(), new Date());
 		return this;
 	}
 

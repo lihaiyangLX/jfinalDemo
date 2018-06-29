@@ -28,5 +28,11 @@ public class BlogValidator extends Validator {
 	protected void validate(Controller contrller) {
 		// TODO Auto-generated method stub
 		controller.keepModel(Blog.class);
+
+		String actionKey = getActionKey();
+		if (actionKey.equals("/blog/save"))
+			controller.render("add.html");
+		else if (actionKey.equals("/blog/update"))
+			controller.render("edit.html");
 	}
 }

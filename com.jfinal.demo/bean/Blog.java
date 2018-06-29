@@ -1,5 +1,7 @@
 package bean;
 
+import javax.persistence.*;
+
 import bean.base.BaseField.Field;
 import bean.base.UuidRemovable;
 
@@ -8,7 +10,11 @@ import bean.base.UuidRemovable;
  * @author LHY
  * @date 2018年6月28日
  */
+@Entity
+@Table(name = "blog")
 public class Blog extends UuidRemovable<Blog> {
+
+	private static final long serialVersionUID = Long.MAX_VALUE;
 
 	public Blog setTitle(String title) {
 

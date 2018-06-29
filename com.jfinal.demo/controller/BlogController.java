@@ -1,11 +1,11 @@
 package controller;
 
+import service.BlogService;
+import Intercept.BlogInterceptor;
+import bean.Blog;
+
 import com.jfinal.aop.Before;
 import com.jfinal.core.Controller;
-
-import Intercept.BlogInterceptor;
-import Validator.BlogValidator;
-import bean.Blog;
 
 /**
  * jfinal
@@ -15,29 +15,34 @@ import bean.Blog;
 @Before(BlogInterceptor.class)
 public class BlogController extends Controller {
 
-  public void index() {
-    setAttr("blogList", new Blog().dao().find("select * from blog"));
-//	    setAttr("blogList", Blog.FILTER_BY_UPDATE..find("select * from blog"));
-  }
+	BlogService service = BlogService.me;
+
+	public void index() {
+
+		setAttr("blogPage", service.list(getParaToInt(0, 1), 10));
+		render("blog.html");
+	}
+
+	public void save() {
+	
+		service.save(getBean(Blog.class));
+		redirect("/blog");
+	}
  
-  public void add() {
-  }
+	public void edit() {
+
+		setAttr("blog", service.findById(getParaToLong()));
+	}
+
+	public void update() {
+
+		getModel(Blog.class).update();
+		redirect("/blog");
+	}
  
-  @Before(BlogValidator.class)
-  public void save() {
-    getModel(Blog.class).save();
-  }
- 
-  public void edit() {
-    setAttr("blog", new Blog().dao().findById(getParaToInt()));
-  }
- 
-  @Before(BlogValidator.class)
-  public void update() {
-    getModel(Blog.class).update();
-  }
- 
-  public void delete() {
-	  new Blog().dao().deleteById(getParaToInt());
-  }
+	public void delete() {
+
+		service.delete(getParaToLong());
+		redirect("/blog");
+	}
 }
