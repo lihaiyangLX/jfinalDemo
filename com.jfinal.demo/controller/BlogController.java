@@ -1,6 +1,3 @@
-/**
- * 
- */
 package controller;
 
 import com.jfinal.aop.Before;

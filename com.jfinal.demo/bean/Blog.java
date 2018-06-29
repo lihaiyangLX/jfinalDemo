@@ -1,6 +1,3 @@
-/**
- * 
- */
 package bean;
 
 import bean.base.BaseField.Field;

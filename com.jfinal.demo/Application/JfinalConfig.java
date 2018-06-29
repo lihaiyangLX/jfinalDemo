@@ -1,6 +1,3 @@
-/**
- * 
- */
 package Application;
 
 import com.jfinal.core.JFinal;

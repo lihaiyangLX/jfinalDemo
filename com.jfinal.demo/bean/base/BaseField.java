@@ -1,6 +1,3 @@
-/**
- * 
- */
 package bean.base;
 
 /**

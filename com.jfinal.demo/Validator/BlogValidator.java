@@ -1,6 +1,3 @@
-/**
- * 
- */
 package Validator;
 
 import com.jfinal.core.Controller;

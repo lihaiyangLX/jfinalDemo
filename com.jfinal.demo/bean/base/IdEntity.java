@@ -1,6 +1,3 @@
-/**
- * 
- */
 package bean.base;
 
 import java.util.Date;

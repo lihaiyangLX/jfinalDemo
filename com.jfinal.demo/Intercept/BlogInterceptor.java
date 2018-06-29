@@ -1,6 +1,3 @@
-/**
- * 
- */
 package Intercept;
 
 import com.jfinal.aop.Interceptor;
