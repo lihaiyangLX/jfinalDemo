@@ -17,8 +17,8 @@ public class BlogValidator extends Validator {
 	 */
 	@Override
 	protected void handleError(Controller controller) {
-		validateRequiredString("blog.title", "titleMsg", "������Blog����!");
-		validateRequiredString("blog.content", "contentMsg", "������Blog����!");
+		validateRequiredString("blog.title", "titleMsg", "请填写blog标题!");
+		validateRequiredString("blog.content", "contentMsg", "请填写blog内容!");
 	}
 
 	/* (non-Javadoc)
